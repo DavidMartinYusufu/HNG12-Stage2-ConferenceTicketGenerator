@@ -59,7 +59,7 @@ function Form() {
   };
 
   const handleUpload = async (event) => {
-    // event.preventDefault();
+    event.preventDefault();
 
     localStorage.setItem("name", JSON.stringify(nameInfo));
     localStorage.setItem("email", JSON.stringify(emailInfo));
