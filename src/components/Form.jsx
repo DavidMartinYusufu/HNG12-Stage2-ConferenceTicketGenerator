@@ -110,7 +110,7 @@ function Form() {
               </div>
               <div className="verify-image">
               <img src={image} alt="" />
-              <div><h6>{image}</h6></div>
+              {/* <div><h6>{image}</h6></div> */}
               </div>
             </div>
             <div className="undeline-two"></div>
