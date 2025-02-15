@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 
 function Form() {
-  const [avater, setAvater] = useState(localStorage.getItem("image"));
+  const [avater, setAvater] = useState(localStorage.getItem("name"));
   const [nameInfo, setNameInfo] = useState(() =>
     JSON.parse(localStorage.getItem("name"))
   );
@@ -14,6 +14,7 @@ function Form() {
   const [textInfo, setTextInfo] = useState(() =>
     JSON.parse(localStorage.getItem("text"))
   );
+  // const [accepted,setAccepted] = useState(false)
   const navigate = useNavigate();
 
   const cloudName = import.meta.env.VITE_PUBLIC_CLOUDINARY_CLOUD;
@@ -28,9 +29,6 @@ function Form() {
       alert("Please select an image before uploading.");
       return;
     }
-
-    console.log(cloudName);
-    console.log(uploadPreset);
 
     if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
       const formData = new FormData();
@@ -48,6 +46,7 @@ function Form() {
 
         const data = await response.json();
         localStorage.setItem("image", JSON.stringify(data.secure_url));
+        setAvater(JSON.stringify(data.secure_url));
 
         console.log(data.secure_url);
       } catch (error) {
@@ -57,6 +56,8 @@ function Form() {
       alert("A jpeg/png file could not be found");
     }
   };
+
+  let image = JSON.parse(avater);  
 
   const handleUpload = async (event) => {
     event.preventDefault();
@@ -68,7 +69,6 @@ function Form() {
     navigate("/Ticket", { replace: true });
   };
 
-  let image = JSON.parse(avater);
   return (
     <>
       <main className="form-container-parent">
@@ -85,7 +85,7 @@ function Form() {
           <section>
             <div className="form-upload-input">
               <p>Upload Profile Photo</p>
-              <div className="form-upload-input-div">
+              <div className="form-upload-input-div" tabIndex="0">
                 <label
                   htmlFor="upload-input"
                   className=""
@@ -107,6 +107,10 @@ function Form() {
                   aria-label="Upload photo. Press Enter or Space to open file selection."
                   required
                 />
+              </div>
+              <div className="verify-image">
+              <img src={image} alt="" />
+              <div><h6>{image}</h6></div>
               </div>
             </div>
             <div className="undeline-two"></div>
