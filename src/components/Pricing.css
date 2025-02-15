@@ -148,6 +148,14 @@ p {
   border: 2px solid #197686;
 }
 
+.price-box:hover {
+  border: 2px solid #13d6f8;
+}
+
+.price-box:focus {
+  border: 2px solid #13d6f8;
+}
+
 .price-box h2 {
   margin: 0%;
   font-size: 24px;

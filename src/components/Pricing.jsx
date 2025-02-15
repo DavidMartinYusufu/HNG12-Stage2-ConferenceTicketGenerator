@@ -32,17 +32,17 @@ function Pricing() {
             </div>
 
             <div className="pricing-box-container">
-              <div className="price-box">
+              <div className="price-box" tabindex="0">
                 <h2>Free</h2>
                 <p>REGULAR ACCESS</p>
                 <p className="p2">20/52</p>
               </div>
-              <div className="price-box">
+              <div className="price-box" tabindex="0">
                 <h2>$150</h2>
                 <p>VIP ACCCESS</p>
                 <p className="p2">20/52</p>
               </div>
-              <div className="price-box">
+              <div className="price-box" tabindex="0">
                 <h2>$250</h2>
                 <p>VVIP ACCESS</p>
                 <p className="p2">20/52</p>
@@ -51,32 +51,33 @@ function Pricing() {
             <div className="numbers-p">
               <p>Number of Tickets</p>
             </div>
-            <div className="ticket-amount-input">
-              <select name="number" id="number" className="number">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-              </select>
-            </div>
-            <div className="pricing-buttons">
-              <Link to="/Form" className="link">
+
+              <div className="ticket-amount-input">
+                <select name="number" id="number" className="number" required>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+              <div className="pricing-buttons">
+                <Link to="/Form" className="link">
+                  <button
+                    className="next-btn"
+                    role="button"
+                    aria-label="click next to continue, to fill out info details."
+                  >
+                    Next
+                  </button>
+                </Link>
                 <button
-                  className="next-btn"
+                  className="cancel-btn"
                   role="button"
-                  aria-label="click next to continue, to fill out info details."
+                  aria-label="Click cancel to terminate process."
                 >
-                  Next
+                  Cancel
                 </button>
-              </Link>
-              <button
-                className="cancel-btn"
-                role="button"
-                aria-label="Click cancel to terminate process."
-              >
-                Cancel
-              </button>
-            </div>
+              </div>
           </section>
         </section>
       </main>
